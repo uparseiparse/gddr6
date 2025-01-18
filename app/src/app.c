@@ -29,7 +29,26 @@ int main(int argc, char **argv)
     }
 
     gddr6_memory_map();
-    gddr6_monitor_temperatures();
+    
+    // Get single temperature reading for all devices
+    int count;
+    struct temperature_reading *readings = gddr6_get_temperatures(&count);
+    
+    if (readings == NULL) {
+        printf("Failed to read temperatures.\n");
+        gddr6_cleanup(1);
+        return 1;
+    }
 
+    // Print temperature readings in simplified format
+    for (int i = 0; i < count; i++) {
+        printf("GPU%d: %u\n", i, readings[i].temperature);
+    }
+
+    // Free the readings array
+    free(readings);
+    
+    // Clean up and exit
+    gddr6_cleanup(0);
     return 0;
 }

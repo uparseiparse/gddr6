@@ -24,10 +24,20 @@ struct gddr6_ctx {
   int fd;
 };
 
+// Structure to hold temperature readings
+struct temperature_reading {
+    const char *device_name;
+    uint32_t temperature;
+};
+
 void gddr6_init(void);
 void gddr6_memory_map(void);
 void gddr6_cleanup(int signal);
-void gddr6_monitor_temperatures(void);
+void gddr6_monitor_temperatures(void); // Kept for backwards compatibility
 int gddr6_detect_compatible_gpus(void);
+
+// New function to get single temperature reading for all devices
+// Returns array of temperature readings and sets count to number of readings
+struct temperature_reading* gddr6_get_temperatures(int *count);
 
 #endif // GDDR6_H
