@@ -1,7 +1,9 @@
-## GDDR6/GDDR6X GPU Memory Temperature Reader for Linux
+## Acknowledgement
+Thanks to olealgoritme for providing this useful way to grabbing *important* GPU VRAM temp. 
 
+## GDDR6/GDDR6X GPU Memory Temperature Reader for Linux
 Reads GDDR6/GDDR6X VRAM memory temperatures from multiple supported NVIDIA GPUs found in a host Linux system.
-These findings are based on reverse engineering of the NVIDIA GPU Linux driver.
+These findings are based on reverse engineering of the NVIDIA GPU Linux driver. Code modified for my purpose of integration.
 
 ## ⚠️ AI Modified Code Disclaimer
 This code has been forked and modified by an AI assistant. The human had no idea what he was doing. The modifications are provided "as is", without warranty of any kind, express or implied. Use at your own risk.
