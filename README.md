@@ -4,7 +4,7 @@ Reads GDDR6/GDDR6X VRAM memory temperatures from multiple supported NVIDIA GPUs 
 These findings are based on reverse engineering of the NVIDIA GPU Linux driver.
 
 ## ⚠️ AI Modified Code Disclaimer
-This code has been modified by an AI assistant. The modifications are provided "as is", without warranty of any kind, express or implied. Use at your own risk.
+This code has been forked and modified by an AI assistant. The human had no idea what he was doing. The modifications are provided "as is", without warranty of any kind, express or implied. Use at your own risk.
 
 ## Prerequisites
 
@@ -38,13 +38,20 @@ SecureBoot disabled
 ```
 sudo apt install libpci-dev -y
 ```
-
-## Installation
+## Build Without Installation
 ```
 git clone https://github.com/uparseiparse/gddr6
 cd gddr6
 chmod +x build.sh
 ./build.sh
+```
+
+## Build With Installation
+```
+git clone https://github.com/uparseiparse/gddr6
+cd gddr6
+chmod +x build_install.sh
+./build_install.sh
 ```
 
 ## Usage
@@ -57,6 +64,13 @@ Output format:
 GPU0: 60
 ```
 Where the number after GPU indicates the device index, and the value is the temperature in Celsius.
+
+## Integration
+If you add this binary to your sudoers file it can run without password, which is probably not completely safe but sure is handy. The purpose of this fork was to allow simple piping into other programs for automation and monitoring.
+
+e.g. 
+sudo visudo
+yourusername ALL=(ALL) NOPASSWD: /path/to/specific_command
 
 ## Supported GPUs
 - RTX 4090 (AD102)
