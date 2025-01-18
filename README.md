@@ -69,8 +69,8 @@ Where the number after GPU indicates the device index, and the value is the temp
 If you add this binary to your sudoers file it can run without password, which is probably not completely safe but sure is handy. The purpose of this fork was to allow simple piping into other programs for automation and monitoring.
 
 e.g. 
-sudo visudo
-yourusername ALL=(ALL) NOPASSWD: /path/to/specific_command
+- sudo visudo
+- yourusername ALL=(ALL) NOPASSWD: /path/to/specific_command
 
 ## Supported GPUs
 - RTX 4090 (AD102)
